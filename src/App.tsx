@@ -1,11 +1,23 @@
-import { Button, ChakraProvider } from "@chakra-ui/react";
-import React from "react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 
 const App = () => {
   return (
-    <ChakraProvider>
-      <Button>My Button</Button>
-    </ChakraProvider>
+    // <Grid templateAreas={`"nav nav" "aside main"`}>
+    <Grid
+      templateAreas={{ lg: `"nav nav" "aside main"`, base: `"nav" "main"` }}
+    >
+      <GridItem area={"nav"} bg={"orange"}>
+        NAV
+      </GridItem>
+      <Show above="lg">
+        <GridItem area={"aside"} bg={"blueviolet"}>
+          ASIDE
+        </GridItem>
+      </Show>
+      <GridItem area={"main"} bg={"lavender"}>
+        MAIN
+      </GridItem>
+    </Grid>
   );
 };
 
