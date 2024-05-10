@@ -20,19 +20,19 @@ const useGames = () => {
     const controller = new AbortController();
 
     apiClient
-      .get<FetchGameResponse>("/games", {signal: controller.signal})
+      .get<FetchGameResponse>("/games", { signal: controller.signal })
       .then((res) => setGames(res.data.results))
-      .catch((err) =>  {
+      .catch((err) => {
         if (err instanceof CanceledError) return;
-        setError(err.message)});
+        setError(err.message);
+      });
 
     return () => {
       controller.abort();
-    }
-
+    };
   }, []);
 
-  return {error, games};
-}
+  return { error, games };
+};
 
 export default useGames;
