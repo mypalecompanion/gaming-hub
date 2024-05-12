@@ -11,10 +11,15 @@ import {
 } from "react-icons/fa";
 import { GrPersonalComputer } from "react-icons/gr";
 import { MdPhoneIphone } from "react-icons/md";
-import { Platform } from "../hooks/useGames";
 
 interface Props {
   platforms: Platform[];
+}
+
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
 }
 
 const iconMap: { [key: string]: IconType } = {
