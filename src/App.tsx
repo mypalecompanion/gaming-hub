@@ -7,13 +7,20 @@ const App = () => {
   return (
     // <Grid templateAreas={`"nav nav" "aside main"`}>
     <Grid
-      templateAreas={{ lg: `"nav nav" "aside main"`, base: `"nav" "main"` }}
+      templateAreas={{
+        lg: `"nav nav" "aside main"`,
+        base: `"nav" "main"`,
+      }}
+      templateColumns={{
+        base: "1fr",
+        lg: "200px 1fr",
+      }}
     >
       <GridItem area={"nav"}>
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"}>
+        <GridItem area={"aside"} paddingX={2}>
           <GenresList />
         </GridItem>
       </Show>
